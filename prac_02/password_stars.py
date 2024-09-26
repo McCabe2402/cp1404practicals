@@ -1,11 +1,16 @@
 def main():
-    password = input('Enter a password: ')
-    MIN_LENGTH = 8
-    while len(password) < MIN_LENGTH:
-        print('Password must be at least 8 characters long.')
-        password = input('Enter a password: ')
-
+    min_length = 8
+    password = get_password(min_length)
     print("*" * len(password))
+
+
+def get_password(min_length):
+    user_password = input("Enter your password: ")
+    while len(user_password) < min_length:
+        print('Password must be at least 8 characters long.')
+        user_password = input('Enter a password: ')
+    return user_password
+
 
 if __name__ == '__main__':
     main()
