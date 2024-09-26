@@ -1,6 +1,3 @@
-score = float(input("Enter score: "))
-# Changed to format both possible out of bounds.
-
 def main():
     score = float(input("Enter score: "))
     result = evaluate_score(score)
