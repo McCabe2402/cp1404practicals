@@ -11,8 +11,9 @@ def main():
     # Main menu loop
     # Make function for display_menu(): to fit in with choice.
     while choice != "Q":
-        # Make Display function here (Replace this comment with it)
+        display_menu()
         choice = input("Enter your choice: ").upper()
+
 
 def get_valid_score():
     """Prompt the user for a valid score between 0 and 100 inclusive"""
@@ -22,10 +23,21 @@ def get_valid_score():
         valid_score = int(input("Enter a score between 0 and 100: "))
     return valid_score
 
+
 def print_result(user_score):
     """Print the result bases on the score"""
     result = score.evaluate_score(user_score)
     print(f"Result for {user_score}: {result}")
+
+
+def display_menu():
+    """Display the menu options"""
+    print("\nMenu:")
+    print("(G)et a valid score")
+    print("(P)rint result")
+    print("(S)how stars")
+    print("(Q)uit")
+
 
 if __name__ == "__main__":
     main()
