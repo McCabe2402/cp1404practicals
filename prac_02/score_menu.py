@@ -38,6 +38,9 @@ def display_menu():
     print("(S)how stars")
     print("(Q)uit")
 
+def show_stars(user_score):
+    """Print stars based on the user score"""
+    print(f"Stars for score {user_score}: {'*' * user_score}")
 
 if __name__ == "__main__":
     main()
