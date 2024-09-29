@@ -8,11 +8,23 @@ def main():
     score = get_valid_score()
     # Menu loop condition
     quit_program = False
+    # Get user choice
+    choice = input("Enter your choice: ").upper()
     # Main menu loop
+    display_menu()
     # Make function for display_menu(): to fit in with choice.
     while choice != "Q":
-        display_menu()
-        choice = input("Enter your choice: ").upper()
+        if choice == "G":
+            user_score = get_valid_score()
+        elif choice == "P":
+            print_result(user_score)
+        elif choice == "S":
+            show_stars(user_score)
+        elif choice == "Q":
+            print("Farewell!")
+        else:
+            print("Invalid choice!")
+
 
 
 def get_valid_score():
