@@ -6,9 +6,10 @@ def main():
     print("Welcome to the Score Processing Program!")
     # Get initial valid score
     input_score = get_valid_score()
-    # Get user choice
     # Main menu loop
     display_menu()
+    # Initialize choice to enter the loop
+    choice = ""
     # Make function for display_menu(): to fit in with choice.
     while choice != "Q":
         choice = input("Enter your choice: ").upper()
@@ -23,7 +24,6 @@ def main():
             print("Farewell!")
         else:
             print("Invalid choice!")
-
 
 
 def get_valid_score():
@@ -49,9 +49,11 @@ def display_menu():
     print("(S)how stars")
     print("(Q)uit")
 
+
 def show_stars(input_score):
     """Print stars based on the user score"""
     print(f"Stars for score {input_score}: {'*' * input_score}")
+
 
 if __name__ == "__main__":
     main()
