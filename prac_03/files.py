@@ -36,6 +36,12 @@ def write_name_to_file():
         file.write(name)
     print(f"Your name '{name}' has been written to name.txt.")
 
+# Question 6: Read from name.txt and print greeting
+def greet_user_from_file():
+    with open('name.txt', 'r') as file:
+        name = file.read().strip()
+    print(f"Your name '{name}' has been written to name.txt.")
+
 if __name__ == "__main__":
     # Uncomment the function you want to test
     # read_file_with_read()
