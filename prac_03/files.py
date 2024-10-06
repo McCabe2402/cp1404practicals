@@ -50,6 +50,14 @@ def sum_first_two_numbers():
         result = first_number + second_number
     print(f"The sum of the first two numbers is: {result}")
 
+# Question 8: Calculate the total of all numbers in numbers.txt
+def total_all_numbers():
+    total = 0
+    with open('numbers.txt', 'r') as file:
+        for line in file:
+            total += int(line.strip())
+    print(f"The total number of all numbers is: {total}")
+
 if __name__ == "__main__":
     # Uncomment the function you want to test
     # read_file_with_read()
@@ -58,4 +66,5 @@ if __name__ == "__main__":
     # read_file_with_for_loop()
     # write_name_to_file()
     # greet_user_from_file()
-    sum_first_two_numbers()
+    # sum_first_two_numbers()
+    total_all_numbers()
