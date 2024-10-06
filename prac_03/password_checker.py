@@ -43,9 +43,11 @@ def is_valid_password(password):
             number_of_digit += 1
         elif character in SPECIAL_CHARACTERS:
             number_of_special += 1
-        pass
 
-    # TODO: if any of the 'normal' counts are zero, return False
+
+    # Check if counts of require character types are zero
+    if number_of_lower == 0 or number_of_upper == 0 or number_of_digit == 0:
+        return False
 
     # TODO: if special characters are required, then check the count of those
     # and return False if it's zero
