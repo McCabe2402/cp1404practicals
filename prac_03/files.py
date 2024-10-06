@@ -42,10 +42,20 @@ def greet_user_from_file():
         name = file.read().strip()
     print(f"Your name '{name}' has been written to name.txt.")
 
+# Question 7: Read first two number from numbers.txt and print their sum
+def sum_first_two_numbers():
+    with open('numbers.txt', 'r') as file:
+        first_number = int(file.readline().strip())
+        second_number = int(file.readline().strip())
+        result = first_number + second_number
+    print(f"The sum of the first two numbers is: {result}")
+
 if __name__ == "__main__":
     # Uncomment the function you want to test
     # read_file_with_read()
     # read_file_with_readline()
     # read_file_with_read_lines()
     # read_file_with_for_loop()
-    write_name_to_file()
+    # write_name_to_file()
+    # greet_user_from_file()
+    sum_first_two_numbers()
