@@ -1,7 +1,7 @@
 """
 Word Occurrences
 Estimate: 10 minutes
-Actual:
+Actual:  About 7 minutes
 """
 
 
