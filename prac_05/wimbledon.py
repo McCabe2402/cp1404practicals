@@ -1,5 +1,4 @@
 import csv
-from collections import defaultdict
 
 FILENAME = "wimbledon.csv"
 INDEX_COUNTRY = 1
@@ -13,23 +12,27 @@ def main():
 def get_records(filename):
     """Read the CSV file and return the records as a list"""
     records = []
-    with open(filename, mode='r') as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        next(csv_reader)
-        for row in csv_reader:
+    with open(filename, mode='r') as file:
+        reader = csv.reader(file)
+        next(reader)
+        for row in reader:
             records.append(row)
     return records
 
 def process_records(records):
     """Process the records and return the records as a list"""
-    champion_to_count = defaultdict(int)
+    champion_to_count = {}
     countries = set()
 
     for record in records:
         champion = record[INDEX_CHAMPION]
         country = record[INDEX_COUNTRY]
 
-        champion_to_count[champion] += 1
+        if champion in champion_to_count:
+            champion_to_count[champion] += 1
+        else:
+            champion_to_count[champion] = 1
+
         countries.add(country)
 
     return champion_to_count, countries
