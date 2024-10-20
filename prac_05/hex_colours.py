@@ -1,4 +1,4 @@
-COLOR_HEX_CODES = {
+COLOUR_HEX_CODES = {
     "aliceblue": "#f0f8ff",
     "antiquewhite": "#faebd7",
     "aqua": "#00ffff",
@@ -13,17 +13,15 @@ COLOR_HEX_CODES = {
 
 
 def main():
-    color_name = input("Enter a color name (or leave blank to quit): ").strip().lower()
+    colour_name = input("Enter a color name (or leave blank to quit): ").strip().lower()
 
-    while color_name != "":
-        hex_code = COLOR_HEX_CODES[color_name]
-
-        if hex_code:
-            print(f"The hexadecimal code for {color_name.capitalize()} is {hex_code}")
+    while colour_name != "":
+        if colour_name in COLOUR_HEX_CODES:
+            hex_code = COLOUR_HEX_CODES[colour_name]
+            print(f"The hexadecimal code for {colour_name.capitalize()} is {hex_code}")
         else:
-            print(f"'{color_name}' is not a valid hex code")
-
-        color_name = input("Enter a color name (or leave blank to quit): ").strip().lower()
+            print(f"'{colour_name}' is not a valid hex code")
+            colour_name = input("Enter a color name (or leave blank to quit): ").strip().lower()
 
     print("Goodbye!")
 
