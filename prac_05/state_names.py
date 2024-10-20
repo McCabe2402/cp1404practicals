@@ -16,10 +16,11 @@ CODE_TO_NAME = {"QLD": "Queensland",
 for code, name in CODE_TO_NAME.items():
     print(f"{code:<3} is {name}")
 
+# User input loop with EAFP approach
 state_code = input("Enter short state: ").strip().upper()
 while state_code != "":
-    if state_code in CODE_TO_NAME:
+    try:
         print(f"{state_code} is {CODE_TO_NAME[state_code]}")
-    else:
+    except KeyError:
         print("Invalid short state")
-    state_code = input("Enter short state: ").strip().upper()
+        state_code = input("Enter short state: ").strip().upper()
