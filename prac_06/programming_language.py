@@ -1,8 +1,8 @@
 """
 Subject: CP1404
 Name of file: programming_language.py
-Estimate time taken:
-Actual time taken:
+Estimate time taken: 10 mins
+Actual time taken: 10 mins
 
 """
 
