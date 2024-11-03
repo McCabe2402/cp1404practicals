@@ -1,23 +1,27 @@
 from guitar import Guitar
 
+
 def main():
     guitars = []
+    print("My guitars!")
 
-    name = ""
+    name = input("Name: ")
 
     while name != "":
-        name = input("Enter the name of the guitar (or press enter to finish): ")
+        year = int(input("Year: "))
+        cost = float(input("Cost: $"))
 
-        if name:
-            year = int(input("Enter the year of the guitar (or press enter to finish): "))
-            cost = float(input("Enter the cost of the guitar (or press enter to finish): "))
+        guitar = Guitar(name, year, cost)
+        guitars.append(guitar)
 
-            guitar = Guitar(name, year, cost)
-            guitars.append(guitar)
+        print(f"{guitar} added.")
+        name = input("Name: ")
 
-    print("\nYour guitars:")
-    for guitar in guitars:
-        print(guitar)
+    print("\nThese are my guitars:")
+    for i, guitar in enumerate(guitars, start=1):
+        vintage_status = "(vintage)" if guitar.is_vintage() else ""
+        print(f"Guitar {i}: {guitar} worth ${guitar.cost:,.2f} {vintage_status}")
+
 
 if __name__ == "__main__":
     main()
