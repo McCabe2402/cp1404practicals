@@ -1,5 +1,7 @@
 import os
 from datetime import datetime
+from html.parser import incomplete
+
 
 class Project:
     """A class to represent a project with its details."""
@@ -51,3 +53,16 @@ def save_projects(file_path, projects):
         for project in projects:
             file.write(f"{project}\n")
 
+
+def display_projects(projects):
+    """Displays incomplete and completed projects, both sorted by priority."""
+    incomplete = sorted([project for project in projects if project.completion_percent < 100], key=lambda x: x.priority)
+    completed = sorted([project for project in projects if project.completion_percent == 100], key=lambda x: x.priority)
+
+    print("Incomplete Projects:")
+    for project in incomplete:
+        print(project)
+
+    print("\nCompleted Projects:")
+    for project in completed:
+        print(project)
