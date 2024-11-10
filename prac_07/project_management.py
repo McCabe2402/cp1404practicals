@@ -44,3 +44,10 @@ def load_projects(file_path):
                 projects.append(project)
     return projects
 
+def save_projects(file_path, projects):
+    """Saves the projects to the file and returns the number of saved projects."""
+    with open(file_path, "w") as file:
+        file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percent\n")
+        for project in projects:
+            file.write(f"{project}\n")
+
