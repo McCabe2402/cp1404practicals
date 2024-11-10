@@ -66,3 +66,23 @@ def display_projects(projects):
     print("\nCompleted Projects:")
     for project in completed:
         print(project)
+
+
+def filter_projects_by_date(projects, date):
+    """Filters and displays projects that start after the given date, sorted by date."""
+    filtered = [project for project in projects if datetime.strptime(project.start_date, "%d/%m/%Y") > date]
+    filtered.sort(key=lambda x: datetime.strptime(x.start_date, "%d/%m/%Y"))
+
+    for project in filtered:
+        print(project)
+
+def add_new_project(projects):
+    """Adds a new project to the list of projects."""
+    name = input("Project Name: ")
+    start_date = input("Start Date (DD/MM/YYYY): ")
+    priority = input("Project Priority (1-10): ")
+    cost_estimate = input("Project Cost Estimate: ")
+    completion_percent = input("Project Completion Percent: ")
+
+    new_project = Project(name, start_date, priority, cost_estimate, completion_percent)
+    projects.append(new_project)
