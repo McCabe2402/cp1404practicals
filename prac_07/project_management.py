@@ -26,5 +26,21 @@ class Project:
         }
 
 
+def load_projects(file_path):
+    """Load the projects from the file and return a list of Project objects."""
+    projects = []
+    if not os.path.exists(file_path):
+        print("The file does not exist!")
+        return projects
 
+    with open(file_path, "r") as file:
+        lines = file.readlines()
+        header = lines[0]
+        for line in lines [1:]:
+            fields = line.strip().split("\t")
+            if len(fields) == 5:
+                name, start_date, priority, cost_estimate, completion_percent = fields
+                project = Project(name, start_date, priority, cost_estimate, completion_percent)
+                projects.append(project)
+    return projects
 
