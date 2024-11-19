@@ -17,13 +17,16 @@ class ConvertMilesToKilometersApp(BoxLayout):
         self.update_km()
 
     def update_km(self):
+        print(f"Updating kilometers for miles: {self.miles}")  # Debugging line
         kilometers = self.miles * 1.60934
         self.km_output = f"{kilometers:.2f} km"  # Update the StringProperty
 
 
 class MilesToKilometersApp(App):
     def build(self):
-        return ConvertMilesToKilometersApp()
+        # Explicitly load the KV file
+        self.root = Builder.load_file('convert_miles_km.kv')
+        return self.root
 
 
 if __name__ == '__main__':
