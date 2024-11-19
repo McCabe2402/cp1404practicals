@@ -1,0 +1,35 @@
+<MilesToKilometersApp>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        TextInput:
+            id: miles_input
+            multiline: False
+            font_size: 24
+            hint_text: "Enter miles"
+            input_filter: 'float'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            spacing: 10
+
+            Button:
+                text: 'Up'
+                font_size: 18
+                on_press: root.change_miles(1)
+
+            Button:
+                text: 'Down'
+                font_size: 18
+                on_press: root.change_miles(-1)
+
+        Label:
+            text: 'Convert miles to km'
+            font_size: 18
+
+        Label:
+            id: result_label
+            text: '0 km'
+            font_size: 24
