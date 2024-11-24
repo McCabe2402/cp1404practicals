@@ -2,10 +2,7 @@
 CP1404/CP5632 Practical
 Car class
 """
-from prac_09.car import Car
-
-from prac_09.car import Car
-
+from prac_09.car import  Car
 
 class Taxi(Car):
     """Specialised version of a Car that includes fare costs."""
@@ -31,9 +28,19 @@ class Taxi(Car):
 
     def drive(self, distance):
         """Drive like parent Car but calculate fare distance as well."""
-        distance_driven = super().drive(distance)
+        # Check if there is enough fuel
+        fuel_needed = distance * 0.1  # Assuming the taxi consumes 0.1 fuel per km
+        if self.fuel < fuel_needed:
+            distance_driven = self.fuel / 0.1  # Drive only as far as the remaining fuel allows
+            self.fuel = 0
+            print(f"Not enough fuel. Can only drive {distance_driven} km.")
+        else:
+            distance_driven = distance
+            self.fuel -= fuel_needed
+
         self.current_fare_distance += distance_driven
         return distance_driven
+
 
 
 
