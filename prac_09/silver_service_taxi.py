@@ -1,21 +1,17 @@
 from taxi import Taxi
 
-
 class SilverServiceTaxi(Taxi):
-    """Specialized version of a Taxi that includes fanciness and flagfall"""
-
     flagfall = 4.50
 
     def __init__(self, name, fuel, fanciness):
-        """Initialize a SilverServiceTaxi instance."""
         super().__init__(name, fuel)
         self.fanciness = fanciness
-        self.price_per_km *= fanciness
-
-    def get_fare(self):
-        """Return the price for the taxi trip, including the flagfall"""
-        return super().get_fare() + SilverServiceTaxi.flagfall
+        self.price_per_km = Taxi.price_per_km * fanciness
 
     def __str__(self):
-        """Return a string representation including flagfall"""
-        return f"{super().__str__()} plus flagfall of ${SilverServiceTaxi.flagfall:.2f}"
+        base_str = super().__str__().replace("odometer", "odo")
+        return (f"{base_str}, {self.current_fare_distance}km on current fare,"
+                f" ${self.price_per_km:.2f}/km plus flagfall of ${self.flagfall:.2f}")
+
+    def get_fare(self):
+        return self.price_per_km * self.current_fare_distance + self.flagfall
